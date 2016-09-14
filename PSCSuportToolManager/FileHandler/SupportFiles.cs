@@ -72,30 +72,5 @@ namespace PSCSuportToolManager.FileHandler
 
 
 
-/*public string DirectoryPath()
-{
-    System.Windows.MessageBox.Show("Please point to the directory that contains all your support tools", "Setup", MessageBoxButton.OK);
-
-    string directoryPath = "";
-
-    using (var folderBrowserDialog = new FolderBrowserDialog())
-    {
-        int count = 0;
-
-        while (String.IsNullOrEmpty(directoryPath))
-        {
-            folderBrowserDialog.ShowDialog();
-            directoryPath = folderBrowserDialog.SelectedPath;
-            count++;
-            if (count >= 5) break;
-        }
-    }
-
-    return directoryPath;
-}*/
-
-
-
-
 
 
