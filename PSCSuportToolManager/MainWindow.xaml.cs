@@ -123,9 +123,14 @@ namespace PSCSuportToolManager
             if (key == Key.Enter)
             {
                 string userInput = txtSearchBox.Text;
-                if(userInput.Equals(""))
+
+                if (userInput.Equals(""))
                 {
                     supportFiles.AppSelectedDisplaytxt = "Nothing entered....";
+                }
+                else if(userInput.ToLowerInvariant().Equals("help"))
+                {
+                    MessageBox.Show("SPECIAL COMMANDS" + "\n" + "Tracking Fedex Package: Paste tracking number" + "\n" + "Property Passwords: proppass:(propertynumber)" +"\n" + "Press ENTER to execute commands", "Commands");
                 }
                 //Tracking
                 else if (userInput.StartsWith("777"))
