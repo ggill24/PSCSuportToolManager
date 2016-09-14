@@ -122,13 +122,13 @@ namespace PSCSuportToolManager
 
             if (key == Key.Enter)
             {
-                string userInput = txtSearchBox.Text;
+                string userInput = txtSearchBox.Text.ToLowerInvariant();
 
                 if (userInput.Equals(""))
                 {
                     supportFiles.AppSelectedDisplaytxt = "Nothing entered....";
                 }
-                else if(userInput.ToLowerInvariant().Equals("help"))
+                else if(userInput.Equals("help"))
                 {
                     MessageBox.Show("SPECIAL COMMANDS" + "\n" + "Tracking Fedex Package: Paste tracking number" + "\n" + "Property Passwords: proppass:(propertynumber)" +"\n" + "Press ENTER to execute commands", "Commands");
                 }
@@ -139,9 +139,9 @@ namespace PSCSuportToolManager
                     if (long.TryParse(txtSearchBox.Text.Replace(" ", ""), out results)) { Track.package(Convert.ToInt64(results)); }
                 }
                 //Property Passwords
-                else if (txtSearchBox.Text.StartsWith("proppass:"))
+                else if (userInput.StartsWith("proppass:"))
                 {
-                    string property = txtSearchBox.Text.Substring(txtSearchBox.Text.IndexOf(":") + 1);
+                    string property = userInput.Substring(userInput.IndexOf(":") + 1);
                     int result = 0;
                     if (!(int.TryParse(property, out result))) { supportFiles.AppSelectedDisplaytxt = "Incorrect Property Number"; return; }
                     supportFiles.AppSelectedDisplaytxt = supportFiles.propertyPassword(property);
@@ -149,7 +149,7 @@ namespace PSCSuportToolManager
                 //File searching
                 else
                 {
-                    int index = supportFiles.FilePaths.FindIndex(x => x.ToLowerInvariant().Contains(txtSearchBox.Text.ToLowerInvariant()));
+                    int index = supportFiles.FilePaths.FindIndex(x => x.ToLowerInvariant().Contains(userInput));
                    
                     if (index != -1)
                     {

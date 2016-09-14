@@ -68,7 +68,7 @@ namespace PSCSuportToolManager.FileHandler
         }
         public string propertyPassword(string property)
         {
-            if (!File.Exists(Path.Combine(SupportFolderPath, "Property Passwords.txt"))) { appSelectedDisplaytxt = "Property Passwords text file does not exist"; }
+            if (!File.Exists(Path.Combine(SupportFolderPath, "Property Passwords.txt"))) {  return "'Property Passwords' Text File Not Found"; }
 
             using (StreamReader sr = new StreamReader(Path.Combine(SupportFolderPath, "Property Passwords.txt")))
             {
