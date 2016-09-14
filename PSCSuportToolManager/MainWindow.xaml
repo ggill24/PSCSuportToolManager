@@ -1,0 +1,18 @@
+﻿<Window x:Class="PSCSuportToolManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PSCSuportToolManager"
+        mc:Ignorable="d"
+        Title="PSC Support Tools" Height="174.324" Width="459.58" ResizeMode="CanMinimize" WindowStyle="ToolWindow">
+    <Grid Background="Orange">
+        <Label x:Name="lblPrev" Foreground="Blue" Content="Prev" HorizontalAlignment="Left" Margin="156,92,0,0" VerticalAlignment="Top" MouseLeftButtonDown="MouseLeftButtonDownPrevNext" MouseEnter="MouseEnterPrevNext" MouseLeave="MouseLeavePrevNext" FontWeight="Bold"/>
+        <Label x:Name="lblNext" Foreground="Blue" Content="Next" HorizontalAlignment="Left" Margin="241,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.695,1.312" MouseLeftButtonDown="MouseLeftButtonDownPrevNext" MouseEnter="MouseEnterPrevNext" MouseLeave="MouseLeavePrevNext" FontWeight="Bold"/>
+        <TextBox x:Name="txtSearchBox" Foreground="Blue" Background="Orange" Text="Search..." HorizontalAlignment="Left" Height="23" Margin="322,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="txtSearchBox_KeyDown"/>
+        <Label x:Name="lblApplicationName" Foreground="Blue" HorizontalContentAlignment="Center"  HorizontalAlignment="Stretch"  Content="{Binding AppSelectedDisplaytxt, Mode=OneWay}" Margin="10,59,10,0" VerticalAlignment="Top" Height="28" MouseLeftButtonDown="lblApplicationName_MouseLeftButtonDown" FontWeight="Bold" FontSize="14" MouseEnter="MouseEnterPrevNext" MouseLeave="MouseLeavePrevNext"/>
+        <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="59" VerticalAlignment="Top" Width="116" Source="Resources/public_storage_thumb.png" Margin="-9,-3,0,0"/>
+        <Border BorderBrush="Blue" BorderThickness="1" HorizontalAlignment="Left" Height="28" Margin="10,59,0,0" VerticalAlignment="Top" Width="434"/>
+        
+    </Grid>
+</Window>
