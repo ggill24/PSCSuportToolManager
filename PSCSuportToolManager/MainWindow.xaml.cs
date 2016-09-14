@@ -132,6 +132,8 @@ namespace PSCSuportToolManager
                 if (txtSearchBox.Text.StartsWith("proppass:"))
                 {
                     string property = txtSearchBox.Text.Substring(txtSearchBox.Text.IndexOf(":") + 1);
+                    int result = 0;
+                    if (!(int.TryParse(property, out result))) { supportFiles.AppSelectedDisplaytxt = "Incorrect Property Number"; return; }
                     supportFiles.AppSelectedDisplaytxt = supportFiles.propertyPassword(property);
                 }
                 //File searching
