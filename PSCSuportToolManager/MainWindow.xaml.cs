@@ -122,14 +122,19 @@ namespace PSCSuportToolManager
 
             if (key == Key.Enter)
             {
-                //Tracking
-                long results = 0;
-                if (txtSearchBox.Text.StartsWith("777"))
+                string userInput = txtSearchBox.Text;
+                if(userInput.Equals(""))
                 {
+                    supportFiles.AppSelectedDisplaytxt = "Nothing entered....";
+                }
+                //Tracking
+                else if (userInput.StartsWith("777"))
+                {
+                    long results = 0;
                     if (long.TryParse(txtSearchBox.Text.Replace(" ", ""), out results)) { Track.package(Convert.ToInt64(results)); }
                 }
                 //Property Passwords
-                if (txtSearchBox.Text.StartsWith("proppass:"))
+                else if (txtSearchBox.Text.StartsWith("proppass:"))
                 {
                     string property = txtSearchBox.Text.Substring(txtSearchBox.Text.IndexOf(":") + 1);
                     int result = 0;
