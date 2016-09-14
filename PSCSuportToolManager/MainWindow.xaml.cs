@@ -124,9 +124,15 @@ namespace PSCSuportToolManager
             {
                 //Tracking
                 long results = 0;
-                if (txtSearchBox.Text.StartsWith("7772"))
+                if (txtSearchBox.Text.StartsWith("777"))
                 {
                     if (long.TryParse(txtSearchBox.Text.Replace(" ", ""), out results)) { Track.package(Convert.ToInt64(results)); }
+                }
+                //Property Passwords
+                if (txtSearchBox.Text.StartsWith("proppass:"))
+                {
+                    string property = txtSearchBox.Text.Substring(txtSearchBox.Text.IndexOf(":") + 1);
+                    supportFiles.AppSelectedDisplaytxt = supportFiles.propertyPassword(property);
                 }
                 //File searching
                 else

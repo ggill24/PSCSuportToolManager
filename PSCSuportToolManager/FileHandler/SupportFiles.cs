@@ -21,7 +21,7 @@ namespace PSCSuportToolManager.FileHandler
                 if (!Directory.Exists(DirectoryPath))
                 {
                     Directory.CreateDirectory(DirectoryPath);
-                   
+
 
                 }
                 if (!Directory.Exists(SupportFolderPath))
@@ -34,7 +34,7 @@ namespace PSCSuportToolManager.FileHandler
 
             catch (DirectoryNotFoundException diNtFndEx)
             {
-               MessageBox.Show(diNtFndEx.Message);
+                MessageBox.Show(diNtFndEx.Message);
             }
             catch (Exception Ex)
             {
@@ -66,8 +66,29 @@ namespace PSCSuportToolManager.FileHandler
         {
             return Directory.GetFiles(path).Where(x => !x.Contains("desktop.ini")).ToList();
         }
+        public string propertyPassword(string property)
+        {
+            if (!File.Exists(Path.Combine(SupportFolderPath, "Property Passwords.txt"))) { appSelectedDisplaytxt = "Property Passwords text file does not exist"; }
+
+            using (StreamReader sr = new StreamReader(Path.Combine(SupportFolderPath, "Property Passwords.txt")))
+            {
+                string result = "";
+                do
+                {
+                    result = sr.ReadLine();
+                    if (result.StartsWith(property)) return result;
+                }
+                while (result != "");
+
+
+            }
+            return "Property/Password Not Found";
+        }
     }
 }
+
+
+
 
 
 
