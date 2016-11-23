@@ -23,7 +23,7 @@ namespace SSSMLoginBot
             {
                 using (ChromeDriver chromeDriver = new ChromeDriver(driverPath))
                 {
-                    chromeDriver.Navigate().GoToUrl("http://support.e-softsys.com/index.php?/Knowledgebase/List");
+                    chromeDriver.Navigate().GoToUrl("(url)");
 
                     var logInBox = chromeDriver.FindElement(By.Name("scemail"));
                     var pwdBox = chromeDriver.FindElement(By.Name("scpassword"));
